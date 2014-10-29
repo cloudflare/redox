@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Docs</title>
+  <link href="{{relativeAssetsPath}}/bootstrap.css">
+  <script src="{{relativeAssetsPath}}/jquery.js"></script>
+  <script src="{{relativeAssetsPath}}/bootstrap.js"></script>
+</head>
+<body>
+  <table class="table">
+    <tbody>
+      {{#each comments}}
+        <tr>
+          <td class="col-md-6" style="padding-left: 20px;">
+            <h{{importance}}>
+              {{title}}
+              {{#unless isModule}}
+                <small>&lt;{{api}}&gt;</small>
+              {{/unless}}
+            </h{{importance}}>
+
+            {{{description.full}}}
+
+            {{#if params}}
+              <table class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Types</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {{#each params}}
+                    <tr>
+                      <td>{{name}}</td>
+                      <td>{{description}}</td>
+                      <td>{{types}}</td>
+                    </tr>
+                  {{/each}}
+                </tbody>
+              </table>
+            {{/if}}
+
+            {{#if return}}
+              <p><strong>Returns:</strong> ({{return.types}}) {{return.description}}</p>
+            {{/if}}
+
+            <p><a data-toggle="collapse" href="#raw-{{id}}">See raw doc output &rarr;</a></p>
+
+            <div class="collapse" id="raw-{{id}}">
+              <pre style="max-height: 300px; max-width: 600px; overflow: auto;">{{json .}}</pre>
+            </div>
+          </td>
+          <td class="col-md-6" style="background: #333; color: #eee; border-color: #222">
+            <pre style="background: transparent; color: inherit; border: none">{{code}}</pre>
+          </div>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</body>
+</html>

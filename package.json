@@ -1,0 +1,19 @@
+{
+  "name": "redox",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "author": "James Kyle <me@thejameskyle.com>",
+  "license": "ISC",
+  "dependencies": {
+    "cpr": "^0.3.2",
+    "dox": "^0.5.3",
+    "globby": "^0.1.1",
+    "handlebars": "^2.0.0",
+    "lodash": "^2.4.1",
+    "mkdirp": "^0.5.0"
+  }
+}
