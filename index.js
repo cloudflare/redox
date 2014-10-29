@@ -5,10 +5,17 @@ var mkdirp = require('mkdirp');
 var cpr = require('cpr');
 var dox = require('dox');
 var Handlebars = require('handlebars');
+var highlight = require('highlight.js');
 var transform = require('./lib/transform');
 var helpers = require('./lib/helpers');
 
 module.exports = redox;
+
+dox.setMarkedOptions({
+  highlight: function(code, lang) {
+    return highlight.highlightAuto(code, [lang]).value;
+  }
+});
 
 var template = fs.readFileSync(path.resolve('./assets/template.hbs')).toString();
 
@@ -30,7 +37,7 @@ function redox(files, opts, cb) {
 
       var relativeAssetsPath = path.relative(
         filename,
-        path.resolve(opts.output, '_assets')
+        './'
       );
 
       var output = redox.compile({
@@ -40,7 +47,7 @@ function redox(files, opts, cb) {
         template: template
       });
 
-      return output;
+      return { filename: filename, output: output };
     });
   } catch (err) {
     cb(err);

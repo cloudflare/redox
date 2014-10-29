@@ -7,10 +7,13 @@
     "url": "https://github.com/cloudflare/redox/issues"
   },
   "dependencies": {
+    "bootstrap": "^3.3.0",
     "cpr": "^0.3.2",
     "dox": "^0.5.3",
     "globby": "^0.1.1",
     "handlebars": "^2.0.0",
+    "highlight.js": "^8.3.0",
+    "jquery": "^2.1.1",
     "lodash": "^2.4.1",
     "mkdirp": "^0.5.0"
   },

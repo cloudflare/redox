@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Docs</title>
-  <link href="{{relativeAssetsPath}}/bootstrap.css">
-  <script src="{{relativeAssetsPath}}/jquery.js"></script>
-  <script src="{{relativeAssetsPath}}/bootstrap.js"></script>
+  <link rel="stylesheet" href="{{relativeAssetsPath}}/node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="{{relativeAssetsPath}}/node_modules/highlight.js/styles/tomorrow-night.css">
+  <script src="{{relativeAssetsPath}}/node_modules/jquery/dist/jquery.js"></script>
+  <script src="{{relativeAssetsPath}}/node_modules/bootstrap/dist/js/bootstrap.js"></script>
 </head>
 <body>
   <table class="table">
@@ -14,9 +15,9 @@
         <tr>
           <td class="col-md-6" style="padding-left: 20px;">
             <h{{importance}}>
-              {{title}}
+              <code>{{title}}</code>
               {{#unless isModule}}
-                <small>&lt;{{api}}&gt;</small>
+                {{#if api}}<small>&lt;{{api}}&gt;</small>{{/if}}
               {{/unless}}
             </h{{importance}}>
 
@@ -54,7 +55,7 @@
             </div>
           </td>
           <td class="col-md-6" style="background: #333; color: #eee; border-color: #222">
-            <pre style="background: transparent; color: inherit; border: none">{{code}}</pre>
+            <pre style="background: transparent; color: inherit; border: none">{{{code}}}</pre>
           </div>
         </tr>
       {{/each}}
